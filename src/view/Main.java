@@ -15,8 +15,8 @@ public class Main {
 		}
 
 		for (int i = 0; i < 3; i++) { // Ativa 3 threads
-			threadMatriz tV = new threadMatriz(i, m);
-			tV.start();
+			threadMatriz tM = new threadMatriz(i, m);
+			tM.start();
 		}
 
 	}

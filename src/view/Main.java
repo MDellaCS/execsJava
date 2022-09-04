@@ -1,5 +1,5 @@
 package view;
-//testando
+//akaka
 import javax.swing.JOptionPane;
 import controller.RedesController;
 

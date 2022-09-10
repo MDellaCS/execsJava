@@ -18,19 +18,16 @@ import javax.swing.ImageIcon;
 
 public class MainCorrida {
 
-	private JFrame frmDragRaceDe;
+	private JFrame frmTela;
 	private JTextField txtGanhador;
 	private JTextField txtPerdedor;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainCorrida window = new MainCorrida();
-					window.frmDragRaceDe.setVisible(true);
+					window.frmTela.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,43 +35,58 @@ public class MainCorrida {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public MainCorrida() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	/**
-	 * 
-	 */
 	private void initialize() {
-		frmDragRaceDe = new JFrame();
-		frmDragRaceDe.setResizable(false);
-		frmDragRaceDe.setTitle("Drag Race de Threads");
-		frmDragRaceDe.setBounds(100, 100, 1000, 304);
-		frmDragRaceDe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmDragRaceDe.getContentPane().setLayout(null);
+		frmTela = new JFrame();
+		frmTela.setResizable(false);
+		frmTela.setTitle("Corrida de Threads");
+		frmTela.setBounds(100, 100, 1000, 304);
+		frmTela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTela.getContentPane().setLayout(null);
+
+		txtGanhador = new JTextField();
+		txtGanhador.setBounds(472, 176, 86, 20);
+		txtGanhador.setVisible(false);
+		frmTela.getContentPane().add(txtGanhador);
+		txtGanhador.setColumns(10);
+
+		txtPerdedor = new JTextField();
+		txtPerdedor.setBounds(472, 209, 86, 20);
+		txtPerdedor.setVisible(false);
+		frmTela.getContentPane().add(txtPerdedor);
+		txtPerdedor.setColumns(10);
+
+		JLabel lblGanhador = new JLabel("Ganhador:");
+		lblGanhador.setBounds(402, 179, 84, 14);
+		lblGanhador.setVisible(false);
+		frmTela.getContentPane().add(lblGanhador);
+
+		JLabel lblPerdedor = new JLabel("Perdedor:");
+		lblPerdedor.setBounds(402, 212, 84, 14);
+		lblPerdedor.setVisible(false);
+		frmTela.getContentPane().add(lblPerdedor);
 
 		JLabel lblCarro1 = new JLabel("Carro 1");
 		lblCarro1.setBounds(33, 39, 46, 14);
-		frmDragRaceDe.getContentPane().add(lblCarro1);
+		frmTela.getContentPane().add(lblCarro1);
 
 		JLabel lblCarro2 = new JLabel("Carro 2");
 		lblCarro2.setBounds(33, 85, 46, 14);
-		frmDragRaceDe.getContentPane().add(lblCarro2);
+		frmTela.getContentPane().add(lblCarro2);
 
 		JButton btnCorrer = new JButton("Iniciar Corrida");
 		btnCorrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				btnCorrer.setEnabled(false);
-				txtGanhador.setText("");
-				txtPerdedor.setText("");
-				
+				btnCorrer.setVisible(false);
+				lblGanhador.setVisible(true);
+				txtGanhador.setVisible(true);
+				lblPerdedor.setVisible(true);
+				txtPerdedor.setVisible(true);
+
 				for (int i = 1; i <= 2; i++) {
 					threadCarros tC = new threadCarros(i, btnCorrer, lblCarro1, lblCarro2, txtGanhador, txtPerdedor);
 					tC.start();
@@ -82,26 +94,9 @@ public class MainCorrida {
 
 			}
 		});
-		btnCorrer.setBounds(10, 203, 159, 23);
-		frmDragRaceDe.getContentPane().add(btnCorrer);
+		btnCorrer.setBounds(402, 206, 159, 23);
+		frmTela.getContentPane().add(btnCorrer);
 
-		txtGanhador = new JTextField();
-		txtGanhador.setBounds(259, 176, 86, 20);
-		frmDragRaceDe.getContentPane().add(txtGanhador);
-		txtGanhador.setColumns(10);
-
-		txtPerdedor = new JTextField();
-		txtPerdedor.setBounds(259, 209, 86, 20);
-		frmDragRaceDe.getContentPane().add(txtPerdedor);
-		txtPerdedor.setColumns(10);
-
-		JLabel lblGanhador = new JLabel("Ganhador:");
-		lblGanhador.setBounds(189, 179, 84, 14);
-		frmDragRaceDe.getContentPane().add(lblGanhador);
-
-		JLabel lblPerdedor = new JLabel("Perdedor:");
-		lblPerdedor.setBounds(189, 212, 84, 14);
-		frmDragRaceDe.getContentPane().add(lblPerdedor);
 	}
 
 }

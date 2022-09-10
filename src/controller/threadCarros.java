@@ -1,7 +1,6 @@
 package controller;
 
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class threadCarros extends Thread implements ActionListener {
@@ -65,8 +64,6 @@ public class threadCarros extends Thread implements ActionListener {
 			i++;
 		} else {
 			txtPerdedor.setText("Carro " + carro);
-			btnCorrer.setText("Correr denovo");
-			btnCorrer.setEnabled(true);
 		}
 
 	}

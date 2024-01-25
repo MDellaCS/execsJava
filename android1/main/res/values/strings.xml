@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Calculadora Android</string>
+    <string name="hint_Num1">Digite um número inteiro</string>
+    <string name="hint_Num2">Digite mais um número inteiro</string>
+    <string name="hint_Op">+ | - | * | /</string>
+    <string name="btnCalc">Calcular</string>
+    <string name="tvRes">Resultado virá aqui</string>
+    <string name="error_Op">Operação inválida</string>
+</resources>
